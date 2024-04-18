@@ -51,7 +51,7 @@ const Login = () => {
       toast({
         title: "Error Occured!",
         description: "error",
-        status: "error",  
+        status: "error",
         duration: 5000,
         isClosable: true,
         position: "bottom",
@@ -60,7 +60,7 @@ const Login = () => {
     }
   }
   return (
-    <VStack spacing={"5px"}>
+    <VStack spacing={"5px"} style={{ color: "black" }}>
       <FormControl isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input

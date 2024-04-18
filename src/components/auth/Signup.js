@@ -22,8 +22,8 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState();
   const [pic, setPic] = useState();
   const [loading, setLoading] = useState(false);
- 
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
   //   submit handler
   async function submitHandler() {
@@ -52,7 +52,7 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
-      navigate("/chats")
+      navigate("/chats");
       setLoading(false);
     } catch (error) {
       toast({
@@ -115,7 +115,7 @@ const Signup = () => {
   };
 
   return (
-    <VStack spacing={"5px"}>
+    <VStack spacing={"5px"} style={{ color: "black" }}>
       <FormControl isRequired>
         <FormLabel>Name</FormLabel>
         <Input
