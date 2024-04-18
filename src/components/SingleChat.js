@@ -1,5 +1,13 @@
-import { Box, Button, FormControl, Input, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  Input,
+  Text,
+  position,
+} from "@chakra-ui/react";
 import ScrollableFeed from "react-scrollable-feed";
+import Message from "./Message";
 
 const SingleChat = () => {
   return (
@@ -21,12 +29,17 @@ const SingleChat = () => {
         display="flex"
         flexDirection="column"
         w="100%"
-        height="100%"
-        justifyContent="flex-end"
+        overflowY={'scroll'}
       >
-        <div className="messages">
+        <div className="messages" >
           <ScrollableFeed>
-            <div>king</div>
+            <Message style={{ position: "flex-end" }} />
+            <Message style={{ position: "flex-start" }} />
+            <Message style={{ position: "flex-end" }} />
+            <Message style={{ position: "flex-start" }} />
+            <Message style={{ position: "flex-end" }} />
+            <Message style={{ position: "flex-end" }} />
+            <Message style={{ position: "flex-start" }} />
           </ScrollableFeed>
         </div>
         <FormControl id="first-name" isRequired mt={3} p={1}>
