@@ -1,7 +1,8 @@
-import { Avatar, Box, Text } from '@chakra-ui/react';
-import React from 'react'
+import { Avatar, Box, Text } from "@chakra-ui/react";
 
-const IndividualChat = () => {
+const IndividualChat = ({ chat, user }) => {
+  console.log(user);
+  console.log(chat);
   return (
     <Box
       display="flex"
@@ -9,21 +10,25 @@ const IndividualChat = () => {
       background="#272727"
       borderLeftRadius={30}
       w="100%"
+      cursor="pointer"
+      _hover={{ backgroundColor: "#636363" }}
     >
       <Avatar
-        name="Dan Abrahmov"
-        src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jp"
+        name={user.userName}
+        src={user.pic}
         color="#272727"
         backgroundColor="#A0AEC0"
       />
       <Box ml="2">
-        <Text fontWeight={"bold"}>Shyam Sundar</Text>
+        <Text fontWeight={"bold"}>{user.userName}</Text>
         <Text fontSize="small" color={"#A0AEC0"}>
-          hi roshan
+          {/* {chat.latestMessage.content.length > 50
+            ? chat.latestMessage.content.substring(0, 51) + "..."
+            : chat.latestMessage.content} */}
         </Text>
       </Box>
     </Box>
   );
-}
+};
 
-export default IndividualChat
+export default IndividualChat;

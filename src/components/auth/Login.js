@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ChatState } from "../../context/chatProvider";
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -21,6 +22,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { setUser } = ChatState();
   async function submitHandler() {
     setLoading(true);
     try {
@@ -37,7 +39,6 @@ const Login = () => {
         },
         config
       );
-      console.log(data);
       toast({
         title: "Login Successful",
         status: "success",
@@ -45,6 +46,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+      setUser(data);
       navigate("/chats");
       setLoading(false);
     } catch (error) {

@@ -11,6 +11,7 @@ import {
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ChatState } from "../../context/chatProvider";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -24,6 +25,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { setUser } = ChatState();
 
   //   submit handler
   async function submitHandler() {
@@ -52,6 +54,7 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
+      setUser(data)
       navigate("/chats");
       setLoading(false);
     } catch (error) {
